@@ -1,0 +1,37 @@
+nvim:
+  - source: ./nvim
+    destination: ~/.config/nvim
+
+shell_rc:
+  - source: ./oh-my-zsh/.zshrc
+    destination: ~/.zshrc
+
+shell:
+  - source: ./oh-my-zsh
+    destination: ~/.oh-my-zsh
+
+git:
+  - source: ./git/*
+    destination: ~/
+
+gpg:
+  - source: ./gpg/gpg.conf
+    destination: ~/.gnupg/gpg.conf
+
+install_medots:
+  - run_interactive: brew tap aminehmida/medots
+  - run_interactive: brew install medots
+
+install_packages:
+  - run_interactive: brew install go rust openssh neovim fq fzf peco asdf 1password-cli font-hack-nerd-font fnm zsh-syntax-highlighting direnv colima docker gpg git-lfs pinentry
+
+install_apps:
+  - run_interactive: brew install --cask raycast 1password warp cursor discord ledger-live spotify bartender
+
+install_node_lts:
+  - run_interactive: fnm install --lts
+
+install_ohmyzsh:
+  - run_interactive: 'sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+    if_os: darwin
+
