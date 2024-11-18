@@ -1,0 +1,45 @@
+[core]
+	editor = "cursor --wait"
+	excludesfile = $HOME/.gitignore.global
+[user]
+	signingkey = AC0E2510BE8A9381
+	name = Joey Figaro
+	email = joey@joeyfigaro.com
+[commit]
+	gpgsign = true
+[gpg]
+	program = /opt/homebrew/bin/gpg
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[pull]
+	default = current
+	rebase = true
+[push]
+	default = current
+[diff]
+	tool = opendiff
+[difftool]
+	prompt = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[alias]
+	stashgrep = "!f() { for i in `git stash list --format=\"%gd\"` ; \
+		do git stash show -p $i | grep -H --label=\"$i\" \"$@\" ; done ; }; f"
+
+[guitool "Stash/show"]
+  cmd = git stash show -p
+[guitool "Stash/list"]
+  cmd = git stash list
+[guitool "Stash/pop"]
+  cmd = git stash pop
+[guitool "Stash/drop"]
+  cmd = git stash drop
+  confirm = yes
+[guitool "Stash"]
+  cmd = git stash
+[init]
+	defaultBranch = main
