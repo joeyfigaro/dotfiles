@@ -4,6 +4,7 @@ op/config
 op/vaults
 
 raycast/config.json
+raycast/extensions
 
 *key
 !*key.pub
