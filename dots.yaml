@@ -14,19 +14,34 @@ git:
   - source: ./git/*
     destination: ~/
 
+qspace:
+  - source: ./qspace.qsdata
+    destination: ~/.qspace/qspace.qsdata
+
+docker:
+  - source: ./docker/config.json
+    destination: ~/.docker/config.json
+
 gpg:
   - source: ./gpg/gpg.conf
     destination: ~/.gnupg/gpg.conf
+
+tmux:
+  - source: ./tmux/tmux.conf
+    destination: ~/.tmux.conf
+
+game_dev:
+  - run_interactive: brew install blender haxe defold
 
 install_medots:
   - run_interactive: brew tap aminehmida/medots
   - run_interactive: brew install medots
 
 install_packages:
-  - run_interactive: brew install go rust openssh neovim fq fzf peco asdf 1password-cli font-hack-nerd-font fnm zsh-syntax-highlighting direnv colima docker gpg git-lfs pinentry
+  - run_interactive: brew install go rust openssh tmux neovim fq fzf peco asdf 1password-cli font-hack-nerd-font fnm zsh-syntax-highlighting direnv colima docker docker-compose gpg git-lfs pinentry figma showkey font-fira-code
 
 install_apps:
-  - run_interactive: brew install --cask raycast 1password warp cursor discord ledger-live spotify bartender
+  - run: brew install --cask raycast 1password warp cursor discord ledger-live spotify bartender modrinth cleanshot telegram obsidian obs cleanmymac github karabiner-elements vlc postico
 
 install_node_lts:
   - run_interactive: fnm install --lts

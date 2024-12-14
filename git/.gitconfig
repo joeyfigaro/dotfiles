@@ -3,7 +3,7 @@
 	excludesfile = $HOME/.gitignore.global
 [user]
 	signingkey = AC0E2510BE8A9381
-	name = Joey Figaro
+	name = Jay Figaro
 	email = joey@joeyfigaro.com
 [commit]
 	gpgsign = true

@@ -108,20 +108,32 @@ fi
 alias zshconfig="cursor $HOME/.zshrc"
 alias ohmyzsh="cursor $DOTFILES_CONFIG/oh-my-zsh"
 alias reload="source $HOME/.zshrc"
+alias dotfiles="cursor $DOTFILES_CONFIG"
 
-source $DOTFILES/oh-my-zsh/aliases.zsh
-
+source $DOTFILES_CONFIG/oh-my-zsh/direnv.zsh
+source $DOTFILES_CONFIG/oh-my-zsh/aliases.zsh
 
 # fnm / node version manager
-export PATH="$HOME/.local/state/fnm_multishells/60954_1731876588829/bin":$PATH
-export FNM_MULTISHELL_PATH="$HOME/.local/state/fnm_multishells/60954_1731876588829"
+export PATH="/Users/joeyfigaro/.local/state/fnm_multishells/23747_1732903993719/bin":$PATH
+export FNM_MULTISHELL_PATH="/Users/joeyfigaro/.local/state/fnm_multishells/23747_1732903993719"
 export FNM_VERSION_FILE_STRATEGY="local"
-export FNM_DIR="$HOME/.local/share/fnm"
+export FNM_DIR="/Users/joeyfigaro/.local/share/fnm"
 export FNM_LOGLEVEL="info"
 export FNM_NODE_DIST_MIRROR="https://nodejs.org/dist"
 export FNM_COREPACK_ENABLED="false"
 export FNM_RESOLVE_ENGINES="true"
 export FNM_ARCH="arm64"
+autoload -U add-zsh-hook
+_fnm_autoload_hook () {
+    if [[ -f .node-version || -f .nvmrc || -f package.json ]]; then
+    fnm use --silent-if-unchanged
+fi
+
+}
+
+add-zsh-hook chpwd _fnm_autoload_hook \
+    && _fnm_autoload_hook
+
 rehash
 
 export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
@@ -132,3 +144,6 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # asdf
 source /opt/homebrew/opt/asdf/libexec/asdf.sh
+[ -s "/Users/joeyfigaro/.jabba/jabba.sh" ] && source "/Users/joeyfigaro/.jabba/jabba.sh"
+
+PATH=~/.console-ninja/.bin:$PATH
