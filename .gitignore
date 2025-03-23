@@ -10,3 +10,5 @@ raycast/extensions
 !*key.pub
 
 oh-my-zsh/cache/*
+
+haxe/*
