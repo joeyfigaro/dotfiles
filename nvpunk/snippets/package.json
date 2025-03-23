@@ -1,0 +1,13 @@
+{
+    "name": "nvpunk-user-snippets",
+    "contributes": {
+        "snippets": [
+            {
+                "language": [
+                    "typescript"
+                ],
+                "path": "./typescript.json"
+            }
+        ]
+    }
+}

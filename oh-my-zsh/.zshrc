@@ -148,4 +148,14 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/opt/asdf/libexec/asdf.sh
 [ -s "/Users/joeyfigaro/.jabba/jabba.sh" ] && source "/Users/joeyfigaro/.jabba/jabba.sh"
 
-PATH=~/.console-ninja/.bin:$PATH
+
+# pnpm
+export PNPM_HOME="/Users/joeyfigaro/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# Added by Windsurf
+export PATH="/Users/joeyfigaro/.codeium/windsurf/bin:$PATH"

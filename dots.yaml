@@ -1,6 +1,14 @@
 nvim:
-  - source: ./nvim
+  - source: ./nvim/*
+    destination: ~/.config
+
+nvim_shared:
+  - source: ./nvim/shared
     destination: ~/.config/nvim
+
+claude:
+  - source: ./ai/claude.config.json
+    destination: ~/Library/Application\ Support/Claude/claude_desktop_config.json
 
 shell_rc:
   - source: ./oh-my-zsh/.zshrc
@@ -13,6 +21,10 @@ shell:
 git:
   - source: ./git/*
     destination: ~/
+
+wayback:
+  - source: ./wayback.conf
+    destination: ~/.config/wayback.conf
 
 qspace:
   - source: ./qspace.qsdata
